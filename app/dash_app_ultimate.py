@@ -27,6 +27,9 @@ app = dash.Dash(
     title="OpenSky Ultimate Flight Analytics"
 )
 
+# Expose server for Gunicorn
+server = app.server
+
 # Sidebar
 sidebar = html.Div([
     html.Div([
@@ -661,6 +664,7 @@ def search_aircraft(search_term, data_json):
             for _, row in results.head(10).iterrows()
         ])
     ])
+
 
 
 if __name__ == '__main__':
